@@ -86,8 +86,8 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
             <a href={`tel:${SITE.phoneRaw}`} className="mt-2 block text-2xl font-bold text-ink hover:text-primary">{SITE.phone}</a>
           </div>
           <div className="rounded-xl bg-surface-alt p-6">
-            <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Email us</div>
-            <Link href="/contact-us" className="mt-2 block text-2xl font-bold text-ink hover:text-primary">Click here</Link>
+            <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Request a free estimate</div>
+            <Link href="/contact-us" className="mt-2 block text-2xl font-bold text-ink hover:text-primary">Send us a message</Link>
           </div>
         </div>
       </section>

@@ -78,6 +78,10 @@ html, body {
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 .fade-up { animation: fadeUp .75s cubic-bezier(.22,.61,.36,1) both; }
 .delay-1 { animation-delay: .12s; }
 .delay-2 { animation-delay: .22s; }
