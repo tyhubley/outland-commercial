@@ -3,15 +3,26 @@ import { SITE } from '@/data/site';
 import { ALL_REVIEWS } from '@/data/reviews';
 import { Cta } from '@/components/Cta';
 import { HeroSwoosh } from '@/components/HeroSwoosh';
+import { JsonLd } from '@/components/JsonLd';
+import { reviewsAggregateSchema, breadcrumbSchema, SITE_URL } from '@/lib/seo';
 
+const URL = `${SITE_URL}/reviews`;
 export const metadata: Metadata = {
   title: 'Read our Reviews | OUTLAND Commercial',
   description: 'Discover what customers are saying about OUTLAND Commercial! Explore real reviews and testimonials to see why our clients trust us for their needs.',
+  alternates: { canonical: URL },
+  openGraph: { type: 'website', url: URL, title: 'Customer Reviews | OUTLAND Commercial', description: `${SITE.googleReviewCount} five-star Google reviews. Read real testimonials from satisfied customers across Waukesha County.` },
+  twitter: { card: 'summary_large_image', title: 'Customer Reviews | OUTLAND Commercial' },
 };
 
 export default function ReviewsPage() {
+  const schemas = [
+    reviewsAggregateSchema(ALL_REVIEWS),
+    breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Reviews', url: '/reviews' }]),
+  ];
   return (
     <>
+      <JsonLd data={schemas} />
       <section className="relative bg-ink text-white overflow-hidden isolate">
         <HeroSwoosh opacity={0.7} />
         <div className="container-x relative z-[2] pt-20 pb-24 text-center">

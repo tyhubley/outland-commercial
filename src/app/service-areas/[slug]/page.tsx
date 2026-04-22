@@ -6,6 +6,8 @@ import { ServiceIcon } from '@/components/ServiceIcons';
 import { Cta } from '@/components/Cta';
 import { ReviewsStrip } from '@/components/ReviewsStrip';
 import { Hero } from '@/components/Hero';
+import { JsonLd } from '@/components/JsonLd';
+import { serviceAreaLocalBusinessSchema, breadcrumbSchema, SITE_URL } from '@/lib/seo';
 import areasData from '@/data/areas-content.json';
 
 type AreaBlock = { type: 'heading' | 'p' | 'ul'; text?: string; items?: string[] };
@@ -32,20 +34,48 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const a = AREAS[params.slug];
   if (!a) return {};
+  const url = `${SITE_URL}/service-areas/${params.slug}`;
   return {
     title: a.metaTitle || undefined,
     description: a.metaDescription || undefined,
-    openGraph: { title: a.metaTitle || undefined, description: a.metaDescription || undefined, images: a.heroSrc ? [a.heroSrc] : undefined },
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'website',
+      url,
+      title: a.metaTitle || undefined,
+      description: a.metaDescription || undefined,
+      images: a.heroSrc ? [{ url: a.heroSrc, width: 1600, height: 900, alt: a.h1 }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: a.metaTitle || undefined,
+      description: a.metaDescription || undefined,
+      images: a.heroSrc ? [a.heroSrc] : undefined,
+    },
   };
 }
 
 export default function AreaPage({ params }: { params: { slug: string } }) {
   const a = AREAS[params.slug];
   if (!a) notFound();
+  const meta = SERVICE_AREAS.find(x => x.slug === params.slug);
+  const cityName = meta?.title || a.h1;
   const hero = a.heroSrc || '/images/image_67c9dd40432c4764167caac0.jpg';
+
+  const crumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Service Areas', url: '/sitemap' },
+    { name: cityName, url: `/service-areas/${params.slug}` },
+  ];
+
+  const schemas = [
+    serviceAreaLocalBusinessSchema({ cityName, citySlug: params.slug, heroImage: hero, description: a.metaDescription }),
+    breadcrumbSchema(crumbs),
+  ];
 
   return (
     <>
+      <JsonLd data={schemas} />
       <Hero h1={a.h1} sub={a.sub} imageSrc={hero} showBadge={false} />
 
       {/* Quick contact */}
@@ -96,6 +126,23 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
             );
             return null;
           })}
+        </div>
+      </section>
+
+      {/* Nearby areas */}
+      <section className="section-y bg-white">
+        <div className="container-x">
+          <p className="chip">Also Serving</p>
+          <h2 className="mt-4 text-2xl md:text-3xl font-bold text-ink tracking-tight">Nearby Waukesha County Communities</h2>
+          <ul className="mt-8 flex flex-wrap gap-2">
+            {SERVICE_AREAS.filter(x => x.slug !== params.slug).map(x => (
+              <li key={x.slug}>
+                <Link href={`/service-areas/${x.slug}`} className="inline-flex items-center rounded-full border border-border bg-white px-4 py-1.5 text-sm text-ink hover:border-primary hover:text-primary transition">
+                  {x.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

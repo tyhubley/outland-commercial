@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { SERVICES } from '@/data/site';
+import { SERVICES, SERVICE_AREAS } from '@/data/site';
 import { SERVICE_CONTENT } from '@/data/services-content';
 import { Cta } from '@/components/Cta';
 import { ReviewsStrip } from '@/components/ReviewsStrip';
 import { FaqList } from '@/components/FaqList';
 import { Hero } from '@/components/Hero';
+import { JsonLd } from '@/components/JsonLd';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { serviceSchema, faqSchema, breadcrumbSchema, absoluteUrl, SITE_URL } from '@/lib/seo';
 
 export const dynamicParams = false;
 
@@ -17,10 +20,19 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const data = SERVICE_CONTENT[params.slug];
   if (!data) return {};
+  const url = `${SITE_URL}/services/${params.slug}`;
   return {
     title: data.metaTitle,
     description: data.metaDescription,
-    openGraph: { title: data.metaTitle, description: data.metaDescription, images: [data.heroImage] },
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'website',
+      url,
+      title: data.metaTitle,
+      description: data.metaDescription,
+      images: [{ url: data.heroImage, width: 1600, height: 900, alt: data.title }],
+    },
+    twitter: { card: 'summary_large_image', title: data.metaTitle, description: data.metaDescription, images: [data.heroImage] },
   };
 }
 
@@ -30,8 +42,20 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   const videoSrc = params.slug === 'snow-removal' ? '/videos/outland-0212.mov' : undefined;
 
+  const crumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Services', url: '/#services' },
+    { name: data.title, url: `/services/${data.slug}` },
+  ];
+  const schemas = [
+    serviceSchema({ slug: data.slug, title: data.title, description: data.metaDescription, image: data.heroImage }),
+    faqSchema(data.faqs.items),
+    breadcrumbSchema(crumbs.map(c => ({ name: c.name, url: c.url }))),
+  ];
+
   return (
     <>
+      <JsonLd data={schemas} />
       <Hero
         h1={data.heroH1}
         sub={data.heroSub}
@@ -101,6 +125,32 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       <FaqList heading={data.faqs.heading} sub={data.faqs.sub} items={data.faqs.items} />
+
+      {/* Service areas cross-link for local SEO */}
+      <section className="section-y bg-ink text-white">
+        <div className="container-x">
+          <p className="chip mx-auto !text-primary">Local {data.title} Coverage</p>
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold tracking-tight max-w-3xl">
+            {data.title} across Waukesha County, WI
+          </h2>
+          <p className="mt-4 max-w-2xl text-white/80">
+            OUTLAND Commercial delivers {data.title.toLowerCase()} to residential and commercial properties throughout Waukesha County and the greater Milwaukee area.
+          </p>
+          <ul className="mt-10 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {SERVICE_AREAS.map((a, i) => (
+              <li key={a.slug}>
+                <Link href={`/service-areas/${a.slug}`} className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10 hover:border-primary/40">
+                  <span className="flex items-center gap-3">
+                    <span className="text-primary font-mono text-sm">{String(i + 1).padStart(2, '0')}.</span>
+                    <span className="font-medium">{a.title}</span>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 14 14" className="text-white/60"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <ReviewsStrip />
       <Cta heading="Transform Your Landscape Today" body="Act now for pristine, year-round beauty and reliability. Schedule your service with OUTLAND Commercial." />

@@ -4,10 +4,16 @@ import { SERVICES } from '@/data/site';
 import { Cta } from '@/components/Cta';
 import { ServiceIcon } from '@/components/ServiceIcons';
 import { Hero } from '@/components/Hero';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbSchema, SITE_URL } from '@/lib/seo';
 
+const URL = `${SITE_URL}/about-us`;
 export const metadata: Metadata = {
   title: 'Landscaping Excellence in Waukesha County | OUTLAND Commercial',
   description: 'Experience unparalleled landscaping and lawn care with OUTLAND Commercial. Serving Waukesha County with top-tier services. Transform your property today!',
+  alternates: { canonical: URL },
+  openGraph: { type: 'website', url: URL, title: 'About OUTLAND Commercial', description: 'Leading landscaping, lawn care, and snow removal provider in Waukesha County since 2020.' },
+  twitter: { card: 'summary_large_image', title: 'About OUTLAND Commercial' },
 };
 
 const AWARDS = [
@@ -18,8 +24,10 @@ const AWARDS = [
 ];
 
 export default function AboutPage() {
+  const crumbs = [{ name: 'Home', url: '/' }, { name: 'About Us', url: '/about-us' }];
   return (
     <>
+      <JsonLd data={breadcrumbSchema(crumbs)} />
       <Hero
         h1="Transform Your Outdoors with OUTLAND Commercial"
         sub="Expert Landscaping & Snow Removal Services across Waukesha County"

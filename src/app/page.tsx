@@ -6,10 +6,13 @@ import { ReviewsStrip } from '@/components/ReviewsStrip';
 import { ServiceIcon } from '@/components/ServiceIcons';
 import { Hero } from '@/components/Hero';
 import { WILL_PIETTE_REVIEW } from '@/data/reviews';
+import { JsonLd } from '@/components/JsonLd';
+import { localBusinessSchema } from '@/lib/seo';
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={localBusinessSchema()} />
       <Hero
         h1="Transform Your Landscape with OUTLAND Commercial"
         sub="Expert Lawn and Snow Care Services Tailored to Your Property's Needs"

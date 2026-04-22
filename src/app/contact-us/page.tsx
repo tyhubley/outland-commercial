@@ -4,17 +4,25 @@ import { Cta } from '@/components/Cta';
 import { ReviewsStrip } from '@/components/ReviewsStrip';
 import { ContactForm } from '@/components/ContactForm';
 import { HeroSwoosh } from '@/components/HeroSwoosh';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbSchema, localBusinessSchema, SITE_URL } from '@/lib/seo';
 
+const URL = `${SITE_URL}/contact-us`;
 export const metadata: Metadata = {
   title: 'Landscaping & Lawn Care Experts | OUTLAND Commercial',
   description: 'Experience premium landscaping and lawn care services with OUTLAND Commercial in Waukesha County. Transform your property year-round. Contact us today!',
+  alternates: { canonical: URL },
+  openGraph: { type: 'website', url: URL, title: 'Contact OUTLAND Commercial', description: 'Get in touch with OUTLAND Commercial. Free estimates for landscaping, lawn care, and snow removal across Waukesha County.' },
+  twitter: { card: 'summary_large_image', title: 'Contact OUTLAND Commercial' },
 };
 
 const DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
 export default function ContactPage() {
+  const crumbs = [{ name: 'Home', url: '/' }, { name: 'Contact', url: '/contact-us' }];
   return (
     <>
+      <JsonLd data={[breadcrumbSchema(crumbs), localBusinessSchema()]} />
       <section className="relative bg-ink text-white overflow-hidden isolate">
         <HeroSwoosh opacity={0.7} />
         <div className="container-x relative z-[2] pt-20 pb-24">
