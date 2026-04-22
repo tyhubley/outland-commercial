@@ -61,7 +61,7 @@ export default function HomePage() {
             <p className="mt-6 text-[17px] text-ink-muted leading-[1.65]">
               OUTLAND Commercial was born from passion and commitment, aiming to beautify Waukesha County one landscape at a time. With deep roots in the community and a focus on exceptional service, we transform outdoor spaces into functional, aesthetic havens. Guided by integrity, sustainability, and innovation, our team prioritizes client satisfaction and environmental stewardship. We stand out with our personalized approach and unfaltering dedication to quality. Trust OUTLAND Commercial to nurture and maintain your green spaces year-round.
             </p>
-            <Link href="/about-us" className="btn btn-primary mt-8">Learn More</Link>
+            <Link href="/about-us" className="btn btn-primary mt-8">About OUTLAND Commercial</Link>
           </div>
         </div>
       </section>
@@ -80,7 +80,7 @@ export default function HomePage() {
             <p className="mt-3 text-ink-muted max-w-2xl mx-auto">
               Get 10% OFF your first seasonal service or landscaping project with OUTLAND Management! From lawn care to snow removal, we keep your home looking its best year-round. Contact us today to claim your discount!
             </p>
-            <Link href="/contact-us" className="btn btn-primary mt-6">Get Code</Link>
+            <Link href="/contact-us" className="btn btn-primary mt-6">Claim your 10% discount</Link>
           </div>
         </div>
       </section>
