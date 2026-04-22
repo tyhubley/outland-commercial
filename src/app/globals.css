@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --primary: #FE4C02;
-  --primary-hover: #E53F00;
+  /* Brand orange palette.
+     --primary is the AA-safe shade used for buttons, chips, and any
+     small orange text on white (passes WCAG contrast at 4.5:1).
+     --primary-bright is the vivid shade used only for large decorative
+     elements (hero swoosh, 10% OFF badge) where contrast matters less. */
+  --primary: #C23500;
+  --primary-bright: #FE4C02;
+  --primary-hover: #A32C00;
   --primary-soft: #FFF1EA;
   --ink: #2B473B;
   --ink-deep: #1E3128;

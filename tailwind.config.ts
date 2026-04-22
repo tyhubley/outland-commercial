@@ -6,8 +6,9 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#FE4C02',
-          hover: '#E53F00',
+          DEFAULT: '#C23500',
+          bright: '#FE4C02',
+          hover: '#A32C00',
           soft: '#FFF1EA',
         },
         ink: {

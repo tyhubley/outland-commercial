@@ -75,7 +75,7 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-5xl font-bold text-ink tracking-tight">Exclusive Seasonal Offers from OUTLAND Commercial</h2>
           </div>
           <div className="mt-12 max-w-3xl mx-auto rounded-2xl bg-primary-soft p-10 text-center ring-1 ring-primary/10">
-            <div className="inline-flex items-center justify-center rounded-full bg-primary text-white w-28 h-28 text-2xl font-extrabold shadow-lg">10% OFF</div>
+            <div className="inline-flex items-center justify-center rounded-full bg-primary-bright text-white w-28 h-28 text-2xl font-extrabold shadow-lg">10% OFF</div>
             <h3 className="mt-6 text-2xl font-bold text-ink">Exclusive Residential Services Discount</h3>
             <p className="mt-3 text-ink-muted max-w-2xl mx-auto">
               Get 10% OFF your first seasonal service or landscaping project with OUTLAND Management! From lawn care to snow removal, we keep your home looking its best year-round. Contact us today to claim your discount!

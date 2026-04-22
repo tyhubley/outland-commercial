@@ -35,7 +35,7 @@ export function Hero({ h1, sub, imageSrc, videoSrc, videoPoster, showBadge = tru
         )}
         <div className="mt-7 flex flex-wrap gap-3 fade-up delay-2">
           <Link href="/contact-us" className="btn btn-primary">Free Estimate</Link>
-          <a href={`tel:${SITE.phoneRaw}`} className="btn btn-white" aria-label={`Call OUTLAND Commercial at ${SITE.phone}`}><IconPhone /> Call us</a>
+          <a href={`tel:${SITE.phoneRaw}`} className="btn btn-white"><IconPhone /> Call us</a>
         </div>
         {showBadge && (
           <div className="mt-10 fade-up delay-3">

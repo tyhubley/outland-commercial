@@ -8,7 +8,7 @@ export function HeroSwoosh({ opacity = 0.8 }: { opacity?: number }) {
       preserveAspectRatio="xMinYMin slice"
       aria-hidden
     >
-      <path d="M0 898C606.4 848.8 799.333 280.5 820 2.5L832.5 -27V898H0Z" fill="var(--primary)" fillOpacity={opacity} />
+      <path d="M0 898C606.4 848.8 799.333 280.5 820 2.5L832.5 -27V898H0Z" fill="var(--primary-bright)" fillOpacity={opacity} />
     </svg>
   );
 }
