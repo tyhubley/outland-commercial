@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 391.2 215.3" style="enable-background:new 0 0 391.2 215.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#2B473B;}
+	.st1{fill:#FE4C02;}
+	.st2{font-family:'UnisonProBold';}
+	.st3{font-size:37.1461px;}
+</style>
+<g>
+	<g>
+		<rect x="108.7" y="21.5" class="st0" width="38.2" height="172.4"/>
+		
+			<rect x="72.4" y="33.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -37.0424 91.1151)" class="st0" width="38.2" height="114.3"/>
+		<rect x="32.6" y="107.7" class="st0" width="114.3" height="38.2"/>
+	</g>
+	
+		<rect x="151.4" y="53.1" transform="matrix(0.7071 -0.7071 0.7071 0.7071 2.3427 150.0709)" class="st1" width="61.9" height="38.2"/>
+</g>
+<text transform="matrix(0.75 0 0 1 158.8867 142.0098)" class="st0 st2 st3">out</text>
+<text transform="matrix(0.75 0 0 1 245.7373 142.0098)" class="st1 st2 st3">land</text>
+</svg>

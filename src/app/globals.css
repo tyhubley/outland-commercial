@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #FE4C02;
+  --primary-hover: #E53F00;
+  --primary-soft: #FFF1EA;
+  --ink: #020817;
+  --ink-muted: #475569;
+  --ink-subtle: #64748B;
+  --surface: #FFFFFF;
+  --surface-alt: #F8FAFC;
+  --border: #E2E8F0;
+}
+
+html, body {
+  background: var(--surface);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-4; }
+
+/* CTA buttons — 8px rounded, 12px/16px padding, like live site */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 font-medium text-[15px] transition-colors whitespace-nowrap shadow-sm;
+}
+.btn-primary { @apply bg-primary text-white hover:bg-primary-hover; }
+.btn-white { @apply bg-white text-ink hover:bg-ink hover:text-white ring-1 ring-ink/10; }
+.btn-ghost { @apply bg-white/10 text-white border border-white/30 backdrop-blur hover:bg-white/20; }
+
+/* Chip / eyebrow */
+.chip {
+  @apply inline-flex items-center gap-2 text-primary text-[13px] font-semibold uppercase tracking-[0.18em];
+}
+.chip::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Rich prose */
+.prose-copy p { @apply text-[17px] leading-[1.65] text-slate-700; }
+.prose-copy h2 { @apply mt-10 mb-4 text-2xl md:text-3xl font-semibold text-ink tracking-tight; }
+.prose-copy h3 { @apply mt-8 mb-3 text-xl md:text-2xl font-semibold text-ink tracking-tight; }
+.prose-copy ul { @apply my-4 space-y-2 text-[17px] text-slate-700; }
+.prose-copy li { @apply pl-6 relative; }
+.prose-copy li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.7em;
+  width: 8px; height: 8px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Hero orange curve (matches live site grab-hero-shape) */
+.hero-swoosh {
+  position: absolute;
+  bottom: 0; right: 0;
+  height: 65%;
+  aspect-ratio: 827 / 894;
+  pointer-events: none;
+  z-index: 2;
+}
+@media (min-width: 768px) {
+  .hero-swoosh { height: 100%; }
+}
+
+/* Fade-up + stagger */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp .75s cubic-bezier(.22,.61,.36,1) both; }
+.delay-1 { animation-delay: .12s; }
+.delay-2 { animation-delay: .22s; }
+.delay-3 { animation-delay: .32s; }
+
+/* Section padding matching live (py-16 md:py-24) */
+.section-y { @apply py-16 md:py-24; }
