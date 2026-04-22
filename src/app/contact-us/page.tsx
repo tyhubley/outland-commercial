@@ -32,31 +32,43 @@ export default function ContactPage() {
       </section>
 
       <section className="section-y bg-white">
-        <div className="container-x grid gap-12 lg:grid-cols-2">
-          <div className="rounded-2xl bg-surface-alt p-8 md:p-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">Get in touch!</h2>
-            <div className="mt-6">
-              <ContactForm />
+        <div className="container-x grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <div className="rounded-2xl bg-white p-6 md:p-10 ring-1 ring-border shadow-card">
+              <p className="chip">Free Estimate</p>
+              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">Tell us about your property</h2>
+              <p className="mt-3 text-ink-muted">
+                Share a few details and we&apos;ll get back with a no-obligation quote for your space.
+              </p>
+              <div className="mt-8">
+                <ContactForm />
+              </div>
             </div>
           </div>
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-ink tracking-tight">Get in Touch With Us</h2>
-            <div className="mt-8 space-y-8">
-              <div>
-                <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Phone</div>
-                <a href={`tel:${SITE.phoneRaw}`} className="mt-2 block text-2xl font-bold text-ink hover:text-primary">{SITE.phone}</a>
-              </div>
-              <div>
-                <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Hours</div>
-                <dl className="mt-3 divide-y divide-border border-t border-border border-b">
-                  {DAYS.map(d => (
-                    <div key={d} className="flex items-center justify-between py-3">
-                      <dt className="text-sm font-medium text-ink">{d}</dt>
-                      <dd className="text-sm text-ink-muted">{SITE.hours}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
+          <div className="lg:col-span-5 space-y-6">
+            <div className="rounded-2xl bg-surface-alt p-6 md:p-8">
+              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Prefer to call?</div>
+              <a href={`tel:${SITE.phoneRaw}`} className="mt-2 block text-3xl font-bold text-ink hover:text-primary tracking-tight">{SITE.phone}</a>
+              <p className="mt-2 text-sm text-ink-muted">We answer every call during business hours.</p>
+            </div>
+            <div className="rounded-2xl bg-surface-alt p-6 md:p-8">
+              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Hours</div>
+              <dl className="mt-3 divide-y divide-border">
+                {DAYS.map(d => (
+                  <div key={d} className="flex items-center justify-between py-2.5">
+                    <dt className="text-sm font-medium text-ink">{d}</dt>
+                    <dd className="text-sm text-ink-muted">{SITE.hours}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <div className="rounded-2xl bg-ink p-6 md:p-8 text-white">
+              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">What happens next</div>
+              <ol className="mt-4 space-y-3 text-sm text-white/85">
+                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">01</span>We review your details and any photos you send over.</li>
+                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">02</span>A team member follows up within one business day.</li>
+                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">03</span>We schedule a site visit and deliver a free estimate.</li>
+              </ol>
             </div>
           </div>
         </div>

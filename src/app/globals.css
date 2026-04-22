@@ -84,3 +84,31 @@ html, body {
 
 /* Section padding matching live (py-16 md:py-24) */
 .section-y { @apply py-16 md:py-24; }
+
+/* Kill Chrome's blue autofill background on form inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: var(--ink) !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Success panel animations */
+@keyframes success-pop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.success-pop { animation: success-pop .5s cubic-bezier(.34,1.56,.64,1) both; }
+
+@keyframes draw-circle { to { stroke-dashoffset: 0; } }
+.success-circle { animation: draw-circle .55s ease-out .15s forwards; }
+
+@keyframes draw-check { to { stroke-dashoffset: 0; } }
+.success-check  { animation: draw-check .4s ease-out .6s forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .success-pop, .success-circle, .success-check, .fade-up { animation: none; opacity: 1; transform: none; stroke-dashoffset: 0; }
+}

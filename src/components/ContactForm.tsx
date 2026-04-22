@@ -2,8 +2,36 @@
 
 import { useState } from 'react';
 
+type Status = 'idle' | 'loading' | 'ok' | 'err';
+
+function Label({ htmlFor, children, required }: { htmlFor: string; children: React.ReactNode; required?: boolean }) {
+  return (
+    <label htmlFor={htmlFor} className="block text-[13px] font-medium text-ink mb-1.5">
+      {children}
+      {required && <span className="text-primary ml-0.5">*</span>}
+    </label>
+  );
+}
+
+function IconSpinner() {
+  return (
+    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" />
+      <path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function IconArrow() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M1 8h14M9 2l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'loading' | 'ok' | 'err'>('idle');
+  const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -24,6 +52,35 @@ export function ContactForm() {
       }
       form.reset();
       setStatus('ok');
+      // Fire confetti celebration
+      const confetti = (await import('canvas-confetti')).default;
+      const colors = ['#FE4C02', '#FFB089', '#020817', '#F8FAFC'];
+      confetti({
+        particleCount: 80,
+        spread: 65,
+        startVelocity: 40,
+        origin: { y: 0.55 },
+        colors,
+        disableForReducedMotion: true,
+      });
+      setTimeout(() => {
+        confetti({
+          particleCount: 60,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0, y: 0.6 },
+          colors,
+          disableForReducedMotion: true,
+        });
+        confetti({
+          particleCount: 60,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1, y: 0.6 },
+          colors,
+          disableForReducedMotion: true,
+        });
+      }, 220);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Submission failed');
       setStatus('err');
@@ -31,44 +88,109 @@ export function ContactForm() {
   }
 
   if (status === 'ok') {
-    return (
-      <div className="rounded-xl bg-white p-6 border border-green-200 text-center">
-        <div className="text-2xl">✅</div>
-        <h3 className="mt-3 font-bold text-ink">Thanks — we&apos;ll be in touch shortly.</h3>
-        <p className="mt-2 text-sm text-ink-muted">Your message has been sent. In the meantime, feel free to call us at (262) 899-2035.</p>
-      </div>
-    );
+    return <SuccessPanel />;
   }
 
-  const input = 'block w-full rounded-lg border border-border bg-white px-4 py-3 text-[15px] text-ink placeholder-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20';
+  const inputBase =
+    'block w-full rounded-lg border border-border bg-white px-4 py-3 text-[15px] text-ink placeholder:text-slate-400 shadow-sm transition focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15';
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4">
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-ink">Name</label>
-        <input id="name" name="name" required autoComplete="name" className={input + ' mt-1'} />
+    <form onSubmit={onSubmit} className="space-y-5" noValidate>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <Label htmlFor="name" required>Name</Label>
+          <input id="name" name="name" required autoComplete="name" placeholder="Your full name" className={inputBase} />
+        </div>
+        <div>
+          <Label htmlFor="email" required>Email</Label>
+          <input id="email" name="email" type="email" required autoComplete="email" placeholder="you@example.com" className={inputBase} />
+        </div>
       </div>
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-ink">Email</label>
-        <input id="email" name="email" type="email" required autoComplete="email" className={input + ' mt-1'} />
+
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <Label htmlFor="phone">Phone</Label>
+          <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="(262) 555-0123" className={inputBase} />
+        </div>
+        <div>
+          <Label htmlFor="address">Property address</Label>
+          <input id="address" name="address" autoComplete="street-address" placeholder="Street, City" className={inputBase} />
+        </div>
       </div>
+
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-ink">Phone</label>
-        <input id="phone" name="phone" type="tel" autoComplete="tel" className={input + ' mt-1'} />
+        <Label htmlFor="message">How can we help?</Label>
+        <textarea
+          id="message"
+          name="message"
+          rows={5}
+          placeholder="Tell us about your property, services you're interested in, and your timeline."
+          className={inputBase + ' resize-y min-h-[140px]'}
+        />
       </div>
-      <div>
-        <label htmlFor="address" className="block text-sm font-medium text-ink">Full Address</label>
-        <input id="address" name="address" autoComplete="street-address" className={input + ' mt-1'} />
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-ink">Leave us a message</label>
-        <textarea id="message" name="message" rows={5} className={input + ' mt-1 resize-y'} />
-      </div>
+
+      {/* Honeypot */}
       <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
-      <button type="submit" disabled={status === 'loading'} className="btn btn-primary w-full">
-        {status === 'loading' ? 'Sending…' : 'Submit'}
+
+      <button
+        type="submit"
+        disabled={status === 'loading'}
+        className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-[15px] font-semibold text-white shadow-sm transition hover:bg-primary-hover active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
+      >
+        {status === 'loading' ? (
+          <>
+            <IconSpinner /> Sending…
+          </>
+        ) : (
+          <>
+            Request free estimate
+            <span className="transition-transform group-hover:translate-x-0.5"><IconArrow /></span>
+          </>
+        )}
       </button>
-      {error && <p className="text-sm text-red-600">{error}</p>}
+
+      <p className="text-[12px] text-ink-subtle text-center">
+        We typically respond within one business day. Your information stays private.
+      </p>
+
+      {error && (
+        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-[13px] text-red-800">
+          <strong className="font-semibold">Couldn&apos;t send.</strong> {error} Please try again or call <a href="tel:2628992035" className="underline font-semibold">(262) 899-2035</a>.
+        </div>
+      )}
     </form>
+  );
+}
+
+function SuccessPanel() {
+  return (
+    <div className="text-center py-6">
+      <div className="mx-auto w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center success-pop">
+        <svg className="w-12 h-12 text-primary" viewBox="0 0 52 52" fill="none">
+          <circle
+            cx="26" cy="26" r="23"
+            stroke="currentColor" strokeWidth="3" fill="none"
+            strokeDasharray="150" strokeDashoffset="150"
+            className="success-circle"
+          />
+          <path
+            d="M15 27l8 8 14-16"
+            stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none"
+            strokeDasharray="40" strokeDashoffset="40"
+            className="success-check"
+          />
+        </svg>
+      </div>
+      <h3 className="mt-6 text-2xl font-bold tracking-tight text-ink fade-up">
+        Message received
+      </h3>
+      <p className="mt-3 text-ink-muted max-w-sm mx-auto fade-up delay-1">
+        Thanks for reaching out. A member of the OUTLAND team will be in touch within one business day.
+      </p>
+      <p className="mt-6 text-sm text-ink-subtle fade-up delay-2">
+        Need a hand sooner? Call us at{' '}
+        <a href="tel:2628992035" className="font-semibold text-primary hover:underline">(262) 899-2035</a>
+      </p>
+    </div>
   );
 }
