@@ -1,6 +1,6 @@
 import { SITE, SERVICES, SERVICE_AREAS } from '@/data/site';
 
-export const SITE_URL = 'https://outlandmanagement.com';
+export const SITE_URL = 'https://www.outlandmanagement.com';
 
 export function absoluteUrl(path = ''): string {
   if (!path) return SITE_URL;

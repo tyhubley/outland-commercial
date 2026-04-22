@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SERVICES, SERVICE_AREAS } from '@/data/site';
 
-const BASE = 'https://outlandmanagement.com';
+const BASE = 'https://www.outlandmanagement.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

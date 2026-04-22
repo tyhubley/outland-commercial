@@ -5,7 +5,7 @@ import { SERVICES, SERVICE_AREAS } from '@/data/site';
 export const metadata: Metadata = {
   title: 'Sitemap | OUTLAND Commercial',
   description: 'Sitemap for OUTLAND Commercial - our general page, service pages, service area pages, and more.',
-  alternates: { canonical: 'https://outlandmanagement.com/sitemap' },
+  alternates: { canonical: 'https://www.outlandmanagement.com/sitemap' },
 };
 
 const SECTIONS = [
