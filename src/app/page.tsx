@@ -5,7 +5,6 @@ import { Cta } from '@/components/Cta';
 import { ReviewsStrip } from '@/components/ReviewsStrip';
 import { ServiceIcon } from '@/components/ServiceIcons';
 import { Hero } from '@/components/Hero';
-import { WILL_PIETTE_REVIEW } from '@/data/reviews';
 import { JsonLd } from '@/components/JsonLd';
 import { localBusinessSchema } from '@/lib/seo';
 
@@ -106,16 +105,6 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
-
-      {/* Feature quote */}
-      <section className="section-y bg-white">
-        <div className="container-x max-w-4xl">
-          <blockquote className="text-[20px] md:text-2xl leading-[1.55] text-ink text-center">
-            &ldquo;{WILL_PIETTE_REVIEW.text}&rdquo;
-          </blockquote>
-          <div className="mt-6 text-center text-sm font-semibold tracking-wider uppercase text-ink-muted">— {WILL_PIETTE_REVIEW.name}</div>
         </div>
       </section>
 
