@@ -86,21 +86,21 @@ export default function HomePage() {
       </section>
 
       {/* Areas served */}
-      <section className="section-y bg-ink text-white">
+      <section className="section-y bg-white">
         <div className="container-x">
           <div className="text-center">
             <p className="chip mx-auto">Service Areas</p>
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight">We&apos;re here to help</h2>
+            <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-tight text-ink">We&apos;re here to help</h2>
           </div>
           <ul className="mt-12 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {SERVICE_AREAS.map((a, i) => (
               <li key={a.slug}>
-                <Link href={`/service-areas/${a.slug}`} className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10 hover:border-primary/40">
+                <Link href={`/service-areas/${a.slug}`} className="flex items-center justify-between rounded-lg border border-border bg-white px-4 py-3 shadow-sm transition hover:border-primary/40 hover:bg-primary-soft">
                   <span className="flex items-center gap-3">
                     <span className="text-primary font-mono text-sm">{String(i + 1).padStart(2, '0')}.</span>
-                    <span className="font-medium">{a.title}</span>
+                    <span className="font-medium text-ink">{a.title}</span>
                   </span>
-                  <svg width="14" height="14" viewBox="0 0 14 14" className="text-white/60"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  <svg width="14" height="14" viewBox="0 0 14 14" className="text-ink-subtle"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </Link>
               </li>
             ))}
