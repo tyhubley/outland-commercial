@@ -8,9 +8,10 @@ export function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const form = e.currentTarget;
     setStatus('loading');
     setError(null);
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    const data = Object.fromEntries(new FormData(form).entries());
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -21,8 +22,8 @@ export function ContactForm() {
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error || 'Submission failed');
       }
+      form.reset();
       setStatus('ok');
-      e.currentTarget.reset();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Submission failed');
       setStatus('err');
