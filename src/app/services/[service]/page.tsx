@@ -14,7 +14,7 @@ import { serviceSchema, faqSchema, breadcrumbSchema, absoluteUrl, SITE_URL } fro
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return SERVICES.map(s => ({ slug: s.slug }));
+  return SERVICES.map(s => ({ service: s.slug }));
 }
 
 export function generateMetadata({ params }: { params: { service: string } }): Metadata {
