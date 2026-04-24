@@ -165,21 +165,17 @@ export function ContactForm() {
 function SuccessPanel() {
   return (
     <div className="text-center py-6">
-      <div className="mx-auto w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center success-pop">
-        <svg className="w-12 h-12 text-primary" viewBox="0 0 52 52" fill="none">
-          <circle
-            cx="26" cy="26" r="23"
-            stroke="currentColor" strokeWidth="3" fill="none"
-            strokeDasharray="150" strokeDashoffset="150"
-            className="success-circle"
-          />
-          <path
-            d="M15 27l8 8 14-16"
-            stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none"
-            strokeDasharray="40" strokeDashoffset="40"
-            className="success-check"
-          />
-        </svg>
+      <div className="mx-auto w-32 h-32 md:w-36 md:h-36 rounded-2xl bg-white ring-4 ring-primary-soft overflow-hidden flex items-center justify-center success-pop">
+        <video
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-full object-contain"
+          aria-hidden
+        >
+          <source src="/videos/outland-logo-anim.mp4" type="video/mp4" />
+        </video>
       </div>
       <h3 className="mt-6 text-2xl font-bold tracking-tight text-ink fade-up">
         Message received
