@@ -75,13 +75,18 @@ export default function HomePage() {
       <section className="section-y bg-surface-alt relative overflow-hidden">
         <div className="container-x grid gap-10 md:grid-cols-2 items-center relative">
           <div>
-            <Image
-              src="/images/image_67c9dd41432c4764167cacc2.jpg"
-              alt="About OUTLAND Commercial"
-              width={900}
-              height={700}
-              className="rounded-xl object-cover shadow-lg"
-            />
+            <video
+              className="rounded-xl object-cover shadow-lg w-full aspect-[9/7] bg-ink"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/images/image_67c9dd41432c4764167cacc2.jpg"
+              aria-label="OUTLAND Commercial crew performing landscape maintenance"
+            >
+              <source src="/videos/about-maintenance.mp4" type="video/mp4" />
+            </video>
           </div>
           <div>
             <p className="chip">About</p>
@@ -100,15 +105,18 @@ export default function HomePage() {
       <section className="section-y bg-white">
         <div className="container-x">
           <div className="text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-ink tracking-tight">Exclusive Seasonal Offers from OUTLAND Commercial</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-ink tracking-tight">New Customer Welcome Offer</h2>
           </div>
           <div className="mt-12 max-w-3xl mx-auto rounded-2xl bg-primary-soft p-10 text-center ring-1 ring-primary/10">
-            <div className="inline-flex items-center justify-center rounded-full bg-primary-bright text-white w-28 h-28 text-2xl font-extrabold shadow-lg">10% OFF</div>
-            <h3 className="mt-6 text-2xl font-bold text-ink">Exclusive Residential Services Discount</h3>
+            <div className="inline-flex items-center justify-center rounded-full bg-primary text-white w-32 h-32 text-3xl font-extrabold shadow-lg">
+              20% OFF
+            </div>
+            <h3 className="mt-6 text-2xl font-bold text-ink">20% off your first service with OUTLAND</h3>
             <p className="mt-3 text-ink-muted max-w-2xl mx-auto">
-              Get 10% OFF your first seasonal service or landscaping project with OUTLAND Management! From lawn care to snow removal, we keep your home looking its best year-round. Contact us today to claim your discount!
+              New to OUTLAND Commercial? Get <strong>20% off your first service</strong> — lawn care, fertilization, snow removal, landscape design, or patio installation. Limited seasonal slots across Waukesha County.
             </p>
-            <Link href="/contact-us" className="btn btn-primary mt-6">Claim your 10% discount</Link>
+            <Link href="/contact-us?offer=WELCOME20" className="btn btn-primary mt-6">Claim your 20% discount</Link>
+            <p className="mt-4 text-[12px] text-ink-subtle">New customers only · Free estimate first · No obligation</p>
           </div>
         </div>
       </section>
