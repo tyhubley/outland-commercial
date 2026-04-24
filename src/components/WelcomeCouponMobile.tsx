@@ -7,14 +7,16 @@ const SESSION_KEY = 'outland_welcome_20_shown';
 const DISMISSED_KEY = 'outland_welcome_20_dismissed';
 const SHOW_AFTER_MS = 2500;
 
+/**
+ * Welcome / first-visit coupon popup.
+ * Renders on every viewport — bottom sheet on mobile, centered modal on desktop.
+ */
 export function WelcomeCouponMobile() {
   const [open, setOpen] = useState(false);
   const [closed, setClosed] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const isMobile = window.matchMedia('(max-width: 1023px)').matches;
-    if (!isMobile) return;
     if (sessionStorage.getItem(SESSION_KEY)) return;
     try { if (localStorage.getItem(DISMISSED_KEY)) return; } catch { /* noop */ }
 
@@ -28,7 +30,7 @@ export function WelcomeCouponMobile() {
   useEffect(() => {
     if (!open) return;
     document.body.style.overflow = 'hidden';
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') dismiss(); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') dismiss(false); };
     window.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = '';
@@ -48,7 +50,7 @@ export function WelcomeCouponMobile() {
 
   return (
     <div
-      className={`fixed inset-0 z-[60] lg:hidden flex items-end justify-center transition-opacity duration-200 ${closed ? 'opacity-0' : 'opacity-100'}`}
+      className={`fixed inset-0 z-[60] flex items-end justify-center md:items-center md:p-4 transition-opacity duration-200 ${closed ? 'opacity-0' : 'opacity-100'}`}
       role="dialog"
       aria-modal="true"
       aria-labelledby="welcome-coupon-title"
@@ -59,7 +61,11 @@ export function WelcomeCouponMobile() {
         onClick={() => dismiss(false)}
       />
       <div
-        className={`relative w-full max-w-md rounded-t-3xl bg-white shadow-2xl overflow-hidden transition-transform duration-300 ${closed ? 'translate-y-full' : 'translate-y-0'}`}
+        className={`relative w-full max-w-md rounded-t-3xl md:rounded-3xl bg-white shadow-2xl overflow-hidden transition-transform duration-300 ${
+          closed
+            ? 'translate-y-full md:translate-y-4 md:scale-95'
+            : 'translate-y-0 md:scale-100'
+        }`}
       >
         <div className="relative bg-primary text-white px-6 pt-6 pb-8">
           <button
@@ -103,7 +109,7 @@ export function WelcomeCouponMobile() {
           </button>
         </div>
 
-        <div className="safe-area-pad bg-white" style={{ height: 'env(safe-area-inset-bottom)' }} />
+        <div className="md:hidden" style={{ height: 'env(safe-area-inset-bottom)' }} />
       </div>
     </div>
   );

@@ -3,7 +3,6 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
-import { ExitIntent } from '@/components/ExitIntent';
 import { WelcomeCouponMobile } from '@/components/WelcomeCouponMobile';
 import { JsonLd } from '@/components/JsonLd';
 import { organizationSchema, websiteSchema, SITE_URL } from '@/lib/seo';
@@ -82,7 +81,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <StickyMobileCta />
         <WelcomeCouponMobile />
-        <ExitIntent />
       </body>
     </html>
   );
