@@ -48,6 +48,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Brand slogan divider */}
+      <section className="relative py-20 md:py-28 bg-ink text-white overflow-hidden isolate">
+        <div
+          className="absolute inset-0 opacity-[0.08] pointer-events-none"
+          style={{
+            backgroundImage:
+              'radial-gradient(circle at 18% 50%, var(--primary) 0, transparent 42%), radial-gradient(circle at 82% 50%, var(--primary) 0, transparent 42%)',
+          }}
+          aria-hidden
+        />
+        <div className="container-x relative text-center">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-primary">Our Promise</p>
+          <blockquote className="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-[1.05]">
+            &ldquo;Your partner for <span className="text-primary">all seasons.</span>&rdquo;
+          </blockquote>
+          <p className="mt-6 text-white/80 max-w-xl mx-auto text-base md:text-lg leading-relaxed">
+            From the first spring mow to the last snowfall, OUTLAND Commercial keeps your property looking its best — every month of the year, across Waukesha County.
+          </p>
+        </div>
+      </section>
+
       <RecentWorkGallery />
 
       {/* About */}

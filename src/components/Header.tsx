@@ -49,8 +49,11 @@ export function Header() {
       {/* Main nav row */}
       <div className="bg-white shadow-sm">
         <div className="container-x flex items-center justify-between py-3">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-3" aria-label="OUTLAND Commercial — Your partner for all seasons">
             <Image src="/logo.webp" alt="OUTLAND Commercial" width={140} height={42} className="h-12 w-auto" priority />
+            <span className="hidden xl:block text-[11px] italic text-ink-muted leading-tight border-l border-border pl-3 py-1">
+              Your partner<br />for all seasons.
+            </span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-7 text-[15px] text-ink">

@@ -24,7 +24,8 @@ export function Footer() {
         <div className="container-x py-16 grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <Image src="/logo.webp" alt="OUTLAND Commercial" width={160} height={48} className="h-12 w-auto" />
-            <p className="mt-4 text-sm text-ink-muted max-w-xs leading-relaxed">
+            <p className="mt-3 text-sm italic font-medium text-primary">Your partner for all seasons.</p>
+            <p className="mt-3 text-sm text-ink-muted max-w-xs leading-relaxed">
               Premium landscaping, lawn care, and snow removal services across Waukesha County.
             </p>
             <a href={`tel:${SITE.phoneRaw}`} className="mt-6 inline-flex items-center gap-2 text-xl font-semibold text-ink hover:text-primary">

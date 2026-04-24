@@ -18,6 +18,7 @@ export function organizationSchema() {
     name: SITE.name,
     legalName: 'OUTLAND Commercial',
     alternateName: ['Outland Landscaping', 'Hubley Landscaping'],
+    slogan: 'Your partner for all seasons.',
     url: SITE_URL,
     logo: absoluteUrl('/logo.webp'),
     image: absoluteUrl('/images/image_67c9dd40432c4764167caac0.jpg'),
