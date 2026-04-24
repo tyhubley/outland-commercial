@@ -85,7 +85,7 @@ export default function HomePage() {
               poster="/images/image_67c9dd41432c4764167cacc2.jpg"
               aria-label="OUTLAND Commercial crew performing landscape maintenance"
             >
-              <source src="/videos/about-maintenance.mp4" type="video/mp4" />
+              <source src="/videos/about-v2.mp4" type="video/mp4" />
             </video>
           </div>
           <div>
