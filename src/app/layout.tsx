@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { StickyMobileCta } from '@/components/StickyMobileCta';
+import { ExitIntent } from '@/components/ExitIntent';
 import { JsonLd } from '@/components/JsonLd';
 import { organizationSchema, websiteSchema, SITE_URL } from '@/lib/seo';
 
@@ -72,11 +74,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className="pb-20 lg:pb-0">
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <Header />
         <main>{children}</main>
         <Footer />
+        <StickyMobileCta />
+        <ExitIntent />
       </body>
     </html>
   );

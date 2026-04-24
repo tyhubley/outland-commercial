@@ -5,6 +5,8 @@ import { Cta } from '@/components/Cta';
 import { ReviewsStrip } from '@/components/ReviewsStrip';
 import { ServiceIcon } from '@/components/ServiceIcons';
 import { Hero } from '@/components/Hero';
+import { TrustBar } from '@/components/TrustBar';
+import { RecentWorkGallery } from '@/components/RecentWorkGallery';
 import { JsonLd } from '@/components/JsonLd';
 import { localBusinessSchema } from '@/lib/seo';
 
@@ -19,6 +21,8 @@ export default function HomePage() {
         videoPoster="/images/image_67c9dd40432c4764167caac0.jpg"
         imageSrcMobile="/images/home-mobile-hero.jpg"
       />
+
+      <TrustBar />
 
       {/* Services */}
       <section className="section-y bg-white">
@@ -43,6 +47,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <RecentWorkGallery />
 
       {/* About */}
       <section className="section-y bg-surface-alt relative overflow-hidden">

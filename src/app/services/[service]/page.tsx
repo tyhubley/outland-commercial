@@ -17,10 +17,10 @@ export function generateStaticParams() {
   return SERVICES.map(s => ({ slug: s.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const data = SERVICE_CONTENT[params.slug];
+export function generateMetadata({ params }: { params: { service: string } }): Metadata {
+  const data = SERVICE_CONTENT[params.service];
   if (!data) return {};
-  const url = `${SITE_URL}/services/${params.slug}`;
+  const url = `${SITE_URL}/services/${params.service}`;
   return {
     title: data.metaTitle,
     description: data.metaDescription,
@@ -36,11 +36,11 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const data = SERVICE_CONTENT[params.slug];
+export default function ServicePage({ params }: { params: { service: string } }) {
+  const data = SERVICE_CONTENT[params.service];
   if (!data) notFound();
 
-  const videoSrc = params.slug === 'snow-removal' ? '/videos/outland-0212.mov' : undefined;
+  const videoSrc = params.service === 'snow-removal' ? '/videos/outland-0212.mov' : undefined;
 
   const crumbs = [
     { name: 'Home', url: '/' },

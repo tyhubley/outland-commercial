@@ -12,7 +12,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
     priority: p === '' ? 1 : 0.7,
   }));
-  items.push(...SERVICES.map(s => ({ url: `${BASE}/services/${s.slug}`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 })));
-  items.push(...SERVICE_AREAS.map(a => ({ url: `${BASE}/service-areas/${a.slug}`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.6 })));
+
+  // Service landing pages
+  items.push(
+    ...SERVICES.map(s => ({
+      url: `${BASE}/services/${s.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+  );
+
+  // Service area landing pages
+  items.push(
+    ...SERVICE_AREAS.map(a => ({
+      url: `${BASE}/service-areas/${a.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
+  );
+
+  // Service × City combo pages (7 × 16 = 112 long-tail local pages)
+  for (const s of SERVICES) {
+    for (const c of SERVICE_AREAS) {
+      items.push({
+        url: `${BASE}/services/${s.slug}/${c.slug}`,
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.65,
+      });
+    }
+  }
+
   return items;
 }
