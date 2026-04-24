@@ -76,14 +76,13 @@ export default function HomePage() {
         <div className="container-x grid gap-10 md:grid-cols-2 items-center relative">
           <div>
             <video
-              className="rounded-xl object-cover shadow-lg w-full aspect-[9/7] bg-ink"
+              className="rounded-xl object-contain shadow-lg w-full aspect-square bg-white"
               autoPlay
               muted
               loop
               playsInline
               preload="metadata"
-              poster="/images/image_67c9dd41432c4764167cacc2.jpg"
-              aria-label="OUTLAND Commercial crew performing landscape maintenance"
+              aria-label="OUTLAND Commercial — Your partner for all seasons"
             >
               <source src="/videos/about-v2.mp4" type="video/mp4" />
             </video>
