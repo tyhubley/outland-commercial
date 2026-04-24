@@ -6,6 +6,8 @@ import Image from 'next/image';
 type Props = {
   videoSrc?: string;
   imageSrc?: string;
+  /** Optional mobile-only poster. If provided, renders above the desktop image at <lg, hidden on lg+. */
+  imageSrcMobile?: string;
   alt: string;
 };
 
@@ -19,7 +21,7 @@ type Props = {
  * This keeps mobile LCP fast — mobile users get just the static poster
  * instead of a 12MB video download.
  */
-export function HeroMedia({ videoSrc, imageSrc, alt }: Props) {
+export function HeroMedia({ videoSrc, imageSrc, imageSrcMobile, alt }: Props) {
   const [showVideo, setShowVideo] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -45,14 +47,24 @@ export function HeroMedia({ videoSrc, imageSrc, alt }: Props) {
 
   return (
     <>
+      {imageSrcMobile && (
+        <Image
+          src={imageSrcMobile}
+          alt={alt}
+          fill
+          priority
+          sizes="(min-width: 1024px) 0px, 100vw"
+          className="object-cover z-0 lg:hidden"
+        />
+      )}
       {imageSrc && (
         <Image
           src={imageSrc}
           alt={alt}
           fill
-          priority
-          sizes="100vw"
-          className="object-cover z-0"
+          priority={!imageSrcMobile}
+          sizes={imageSrcMobile ? '(min-width: 1024px) 100vw, 0px' : '100vw'}
+          className={`object-cover z-0 ${imageSrcMobile ? 'hidden lg:block' : ''}`}
         />
       )}
       {videoSrc && showVideo && (

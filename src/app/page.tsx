@@ -17,6 +17,7 @@ export default function HomePage() {
         sub="Expert Lawn and Snow Care Services Tailored to Your Property's Needs"
         videoSrc="/videos/outland-hero.mp4"
         videoPoster="/images/image_67c9dd40432c4764167caac0.jpg"
+        imageSrcMobile="/images/home-mobile-hero.jpg"
       />
 
       {/* Services */}
