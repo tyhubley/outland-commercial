@@ -9,6 +9,11 @@ import { FaqList } from '@/components/FaqList';
 import { Hero } from '@/components/Hero';
 import { JsonLd } from '@/components/JsonLd';
 import { serviceSchema, faqSchema, breadcrumbSchema, SITE_URL } from '@/lib/seo';
+import areasData from '@/data/areas-content.json';
+
+type AreaBlock = { type: 'heading' | 'p' | 'ul'; text?: string; items?: string[] };
+type AreaContent = { h1: string; sub: string | null; body: AreaBlock[]; servicesHeading: string | null };
+const AREAS = areasData as Record<string, AreaContent>;
 
 // Static params: one page per service + city combination → 7 × 16 = 112 pages.
 // Only this nested [service]/[city] route — the top-level [service] route
@@ -85,6 +90,15 @@ export default function ServiceCityPage({ params }: { params: { service: string;
   const otherServices = SERVICES.filter(s => s.slug !== params.service);
   const otherCities = SERVICE_AREAS.filter(a => a.slug !== params.city);
 
+  // Pull the first 1–2 unique paragraphs of body copy from the area data so
+  // each /services/[X]/[city] page has genuinely city-specific intro text
+  // (not just dynamic placeholders that look near-duplicate to Google).
+  const area = AREAS[params.city];
+  const cityIntroParagraphs: string[] = (area?.body ?? [])
+    .filter(b => b.type === 'p' && typeof b.text === 'string' && b.text.length > 80)
+    .slice(0, 2)
+    .map(b => b.text!);
+
   return (
     <>
       <JsonLd data={schemas} />
@@ -110,19 +124,24 @@ export default function ServiceCityPage({ params }: { params: { service: string;
         </div>
       </section>
 
-      {/* Location-specific intro */}
+      {/* Location-specific intro — pulls a real city paragraph from the area data
+          so each combo page has genuinely unique local content instead of a
+          templated placeholder. Helps avoid 'duplicate content' / 'crawled but
+          not indexed' flags in Search Console. */}
       <section className="section-y bg-white">
         <div className="container-x max-w-4xl prose-copy">
           <p className="chip">Serving {c.name}, WI</p>
           <h2 className="!mt-4 text-3xl md:text-4xl font-bold text-ink tracking-tight">
             {data.title} homeowners and businesses in {c.name} rely on
           </h2>
-          <p>
-            OUTLAND Commercial has been providing {data.title.toLowerCase()} to properties across {c.name} and the rest of Waukesha County for more than ten years. Whether you manage a commercial facility off the main corridor or care for a residential lot, our crews handle the full scope — {data.intro.body.toLowerCase().split('. ').slice(0, 1).join('. ')}.
-          </p>
+
+          {/* Unique city paragraph(s) from areas-content.json */}
+          {cityIntroParagraphs.map((text, i) => <p key={`city-${i}`}>{text}</p>)}
+
+          <h3>Our {data.title.toLowerCase()} approach in {c.name}</h3>
           <p>{data.intro.body}</p>
 
-          {data.sections.slice(0, 3).map((s, i) => (
+          {data.sections.slice(0, 2).map((s, i) => (
             <div key={i}>
               {s.heading && <h3>{s.heading}</h3>}
               {s.body && <p>{s.body}</p>}
@@ -138,7 +157,7 @@ export default function ServiceCityPage({ params }: { params: { service: string;
             </div>
           ))}
 
-          <h3>Why {c.name} properties choose OUTLAND</h3>
+          <h3>Why {c.name} properties choose OUTLAND Commercial</h3>
           <p>
             Our team lives and works in Waukesha County. We understand what {c.name}-area properties deal with year-round — from spring thaws that saturate clay soils to late-winter snow events that come through fast. We schedule service windows around {c.name} weather patterns, use equipment sized to the local lot styles, and stand behind every visit with our 5.0-star Google track record.
           </p>
