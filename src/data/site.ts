@@ -12,7 +12,7 @@ export const SITE = {
 
 export const SERVICES = [
   { slug: 'landscape-maintenance', title: 'Landscape Maintenance', short: 'Reliable upkeep ensuring your landscape remains pristine and beautiful.' },
-  { slug: 'landscape-enhancements', title: 'Landscape Enhancements', short: 'Transform ordinary yards into stunning outdoor masterpieces with ease.' },
+  { slug: 'landscape-installations', title: 'Landscape Installations', short: 'Mulch, plantings, hardscape, and full property installs that transform any yard.' },
   { slug: 'snow-removal', title: 'Snow Removal', short: 'Efficiently clearing your property for safe, uninterrupted winter access.' },
   { slug: 'sports-field-maintenance', title: 'Sports Field Maintenance', short: 'Elevate field performance with meticulous care and attention to detail.' },
   { slug: 'fertilization-services', title: 'Fertilization Services', short: 'Nourish your lawn for vibrant growth and lasting beauty.' },

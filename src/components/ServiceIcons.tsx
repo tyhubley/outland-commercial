@@ -5,7 +5,7 @@ export function ServiceIcon({ slug }: { slug: string }) {
       return (
         <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l1.5 3 3 .5-2.2 2.2.5 3.3L12 9.5 9.2 11l.5-3.3L7.5 5.5l3-.5L12 2z"/><path d="M3 21c2-3 6-3 9-3s7 0 9 3"/></svg>
       );
-    case 'landscape-enhancements':
+    case 'landscape-installations':
       return (
         <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="M4 21h16"/><path d="M6 17V9l6-4 6 4v8"/><path d="M10 21v-6h4v6"/></svg>
       );

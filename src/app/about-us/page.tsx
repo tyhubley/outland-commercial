@@ -52,7 +52,7 @@ export default function AboutPage() {
           <p>OUTLAND Commercial provides an array of services to meet all your landscaping needs, including:</p>
           <ul>
             <li>Landscape Maintenance</li>
-            <li>Landscape Enhancements</li>
+            <li>Landscape Installations (mulch, plantings, hardscape)</li>
             <li>Snow and Ice Removal</li>
             <li>Lawn Care</li>
             <li>Tree Care</li>

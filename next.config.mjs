@@ -12,6 +12,10 @@ const nextConfig = {
       { source: '/service', destination: '/', permanent: true },
       { source: '/services', destination: '/', permanent: true },
       { source: '/service-areas', destination: '/sitemap', permanent: true },
+      // Renamed slug: Landscape Enhancements -> Landscape Installations
+      // Preserves any SEO equity Google has on the old URLs.
+      { source: '/services/landscape-enhancements', destination: '/services/landscape-installations', permanent: true },
+      { source: '/services/landscape-enhancements/:city', destination: '/services/landscape-installations/:city', permanent: true },
     ];
   },
 };
