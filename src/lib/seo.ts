@@ -128,6 +128,13 @@ export function serviceSchema(s: {
     areaServed: SERVICE_AREAS.map(a => ({ '@type': 'City', name: a.title.replace(/,\s*WI$/, '') })),
     url: absoluteUrl('/services/' + s.slug),
     image: s.image ? absoluteUrl(s.image) : undefined,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: SITE.googleReviewCount,
+      bestRating: '5',
+      worstRating: '5',
+    },
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',

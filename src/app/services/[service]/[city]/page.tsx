@@ -45,8 +45,10 @@ export function generateMetadata({ params }: { params: { service: string; city: 
   const c = city(params.city);
   if (!data || !c) return {};
   const url = `${SITE_URL}/services/${params.service}/${params.city}`;
-  const title = `${data.title} in ${c.name}, WI | OUTLAND Commercial`;
-  const description = `Professional ${data.title.toLowerCase()} in ${c.name}, WI from OUTLAND Commercial — 10+ years serving Waukesha County. Free estimates for homes and businesses.`;
+  // Title formula: location first (matches "{city} {service}" search intent),
+  // brand + 5-star social proof for higher CTR. Stays under 60 chars where possible.
+  const title = `${c.name} ${data.title} · OUTLAND Commercial · 5★ Rated`;
+  const description = `Top-rated ${data.title.toLowerCase()} in ${c.name}, WI — 79 five-star Google reviews, 10+ years local. Free estimate · Family-owned · Licensed & insured.`;
   return {
     title,
     description,

@@ -21,18 +21,24 @@ export function generateMetadata({ params }: { params: { service: string } }): M
   const data = SERVICE_CONTENT[params.service];
   if (!data) return {};
   const url = `${SITE_URL}/services/${params.service}`;
+  // SEO-tuned title: [Service] in Waukesha County · OUTLAND · 5★ 79 Reviews.
+  // Puts the keyword first, includes geo-modifier, ends with social proof
+  // for higher CTR vs. generic '... | Brand' patterns.
+  const title = `${data.title} in Waukesha County, WI · OUTLAND · 5★ 79 Reviews`;
+  // Lead description with specifics + CTA.
+  const description = `${data.title} for residential and commercial properties across Waukesha County. Family-owned, 10+ years, 79 five-star Google reviews. Free estimate today.`;
   return {
-    title: data.metaTitle,
-    description: data.metaDescription,
+    title,
+    description,
     alternates: { canonical: url },
     openGraph: {
       type: 'website',
       url,
-      title: data.metaTitle,
-      description: data.metaDescription,
+      title,
+      description,
       images: [{ url: data.heroImage, width: 1600, height: 900, alt: data.title }],
     },
-    twitter: { card: 'summary_large_image', title: data.metaTitle, description: data.metaDescription, images: [data.heroImage] },
+    twitter: { card: 'summary_large_image', title, description, images: [data.heroImage] },
   };
 }
 

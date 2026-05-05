@@ -34,22 +34,27 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const a = AREAS[params.slug];
   if (!a) return {};
+  const meta = SERVICE_AREAS.find(x => x.slug === params.slug);
+  const cityName = meta?.title.replace(/,\s*WI$/, '') ?? a.h1;
   const url = `${SITE_URL}/service-areas/${params.slug}`;
+  // Title with city + service-blanket + star rating to lift CTR.
+  const title = `${cityName} Landscaping & Snow Removal · OUTLAND · 5★ 79 Reviews`;
+  const description = a.metaDescription || `Top-rated landscaping, lawn care, and snow removal in ${cityName}, WI. 79 five-star Google reviews · 10+ years local. Free estimate today.`;
   return {
-    title: a.metaTitle || undefined,
-    description: a.metaDescription || undefined,
+    title,
+    description,
     alternates: { canonical: url },
     openGraph: {
       type: 'website',
       url,
-      title: a.metaTitle || undefined,
-      description: a.metaDescription || undefined,
+      title,
+      description,
       images: a.heroSrc ? [{ url: a.heroSrc, width: 1600, height: 900, alt: a.h1 }] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
-      title: a.metaTitle || undefined,
-      description: a.metaDescription || undefined,
+      title,
+      description,
       images: a.heroSrc ? [a.heroSrc] : undefined,
     },
   };
