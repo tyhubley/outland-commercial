@@ -24,7 +24,13 @@ export async function POST(req: Request) {
     }
 
     const fromAddress = process.env.RESEND_FROM || 'OUTLAND Website <onboarding@resend.dev>';
-    const toAddress = process.env.RESEND_TO || SITE.email;
+    // RESEND_TO accepts a single address or a comma-separated list.
+    // Every recipient receives the same email at once (Resend treats them
+    // as standard To: recipients).
+    const toAddresses = (process.env.RESEND_TO || SITE.email)
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
 
     const subject = `New inquiry from ${name}`;
     const safe = (s: string | undefined) =>
@@ -46,7 +52,7 @@ export async function POST(req: Request) {
 
     const { error } = await resend.emails.send({
       from: fromAddress,
-      to: [toAddress],
+      to: toAddresses,
       replyTo: email,
       subject,
       text,
