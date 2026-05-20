@@ -15,7 +15,8 @@ export const SERVICES = [
   { slug: 'landscape-installations', title: 'Landscape Installations', short: 'Mulch, plantings, hardscape, and full property installs that transform any yard.' },
   { slug: 'snow-removal', title: 'Snow Removal', short: 'Efficiently clearing your property for safe, uninterrupted winter access.' },
   { slug: 'sports-field-maintenance', title: 'Sports Field Maintenance', short: 'Elevate field performance with meticulous care and attention to detail.' },
-  { slug: 'fertilization-services', title: 'Fertilization Services', short: 'Nourish your lawn for vibrant growth and lasting beauty.' },
+  { slug: 'fertilization-services', title: 'Lawn Fertilization', short: 'Seasonal fertilizer programs for thick, green lawns — and weed control that actually works.' },
+  { slug: 'shrub-trimming', title: 'Shrub Trimming & Pruning', short: 'Clean, professional shrub trimming and ornamental pruning that brings out every shape.' },
   { slug: 'tree-care-services', title: 'Tree Care Services', short: 'Nurture and protect your trees with expert care and maintenance.' },
   { slug: 'patio-installation-and-concrete', title: 'Patio Installation and Concrete', short: 'Transform your outdoor area with custom-designed, durable patios.' },
 ] as const;

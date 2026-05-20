@@ -32,18 +32,27 @@ export default function HomePage() {
             <h2 className="mt-4 text-3xl md:text-5xl font-bold text-ink tracking-tight">Our Professional Services</h2>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map(s => (
-              <Link key={s.slug} href={`/services/${s.slug}`} className="group relative overflow-hidden rounded-xl border border-border bg-white p-7 shadow-card transition hover:shadow-card-hover hover:border-primary/30 hover:-translate-y-0.5">
-                <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Services</div>
-                <div className="mt-4"><ServiceIcon slug={s.slug} /></div>
-                <h3 className="mt-4 text-xl font-semibold text-ink">{s.title}</h3>
-                <p className="mt-2 text-[15px] text-ink-muted">{s.short}</p>
-                <div className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                  View {s.title} details
-                  <svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </div>
-              </Link>
-            ))}
+            {SERVICES.map(s => {
+              const featured = ['shrub-trimming', 'fertilization-services', 'landscape-installations'].includes(s.slug);
+              return (
+                <Link key={s.slug} href={`/services/${s.slug}`} className="group relative overflow-hidden rounded-xl border border-border bg-white p-7 shadow-card transition hover:shadow-card-hover hover:border-primary/30 hover:-translate-y-0.5">
+                  {featured && (
+                    <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-primary text-white text-[10px] font-bold uppercase tracking-[0.12em] px-2.5 py-1 shadow-md">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M12 2l2.9 6.9L22 10l-5.5 4.8L18 22l-6-3.6L6 22l1.5-7.2L2 10l7.1-1.1z" /></svg>
+                      Now Booking
+                    </span>
+                  )}
+                  <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Services</div>
+                  <div className="mt-4"><ServiceIcon slug={s.slug} /></div>
+                  <h3 className="mt-4 text-xl font-semibold text-ink">{s.title}</h3>
+                  <p className="mt-2 text-[15px] text-ink-muted">{s.short}</p>
+                  <div className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                    View {s.title} details
+                    <svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" fill="none" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -21,6 +21,10 @@ export function ServiceIcon({ slug }: { slug: string }) {
       return (
         <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21c5-4 7-8 7-12a7 7 0 00-14 0c0 4 2 8 7 12z"/><path d="M12 3v18"/></svg>
       );
+    case 'shrub-trimming':
+      return (
+        <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 21h16"/><path d="M5 21V14a4 4 0 014-4h0M19 21V14a4 4 0 00-4-4h0M12 21V10"/><path d="M14 6l2-2M10 6L8 4M12 4V2"/></svg>
+      );
     case 'tree-care-services':
       return (
         <svg className={common} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3c4 0 7 3 7 7s-3 5-5 5h-1v6h-2v-6H10c-2 0-5-2-5-5s3-7 7-7z"/></svg>

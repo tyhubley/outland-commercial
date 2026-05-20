@@ -53,10 +53,12 @@ export default function AboutPage() {
           <ul>
             <li>Landscape Maintenance</li>
             <li>Landscape Installations (mulch, plantings, hardscape)</li>
+            <li>Lawn Fertilization &amp; Weed Control</li>
+            <li>Shrub Trimming &amp; Pruning</li>
             <li>Snow and Ice Removal</li>
-            <li>Lawn Care</li>
             <li>Tree Care</li>
-            <li>Residential Services</li>
+            <li>Sports Field Maintenance</li>
+            <li>Patio Installation &amp; Concrete</li>
           </ul>
           <p>Our seasoned team of professionals is equipped to handle everything from routine maintenance to complex enhancements, ensuring each project reflects our commitment to quality and excellence.</p>
 
