@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'OUTLAND Commercial',
-  phone: '(262) 899-2035',
-  phoneRaw: '2628992035',
+  phone: '(920) 412-3524',
+  phoneRaw: '9204123524',
   email: 'hello@outlandmanagement.com',
   hours: '7:00 AM – 5:00 PM',
   hoursDays: 'Mon - Sun',
