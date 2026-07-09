@@ -4,6 +4,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
 import { WelcomeCouponMobile } from '@/components/WelcomeCouponMobile';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { JsonLd } from '@/components/JsonLd';
 import { organizationSchema, websiteSchema, SITE_URL } from '@/lib/seo';
 
@@ -88,6 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <StickyMobileCta />
         <WelcomeCouponMobile />
+        <SpeedInsights />
       </body>
     </html>
   );

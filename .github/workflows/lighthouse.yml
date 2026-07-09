@@ -1,0 +1,33 @@
+name: Lighthouse CI
+
+on:
+  # Run on every push to main so we always have a fresh baseline
+  push:
+    branches: [main]
+  # And on every PR so regressions get caught before merge
+  pull_request:
+    branches: [main]
+
+jobs:
+  audit:
+    name: Lighthouse (mobile + desktop)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Vercel preview deploy to be ready
+        # Vercel takes ~30-60s to build and deploy after a push. Sleep so we
+        # audit the deploy that reflects the commit we're testing, not a stale
+        # version. In production this should switch to the `vercel/actions/wait-for-deployment` action.
+        run: sleep 90
+
+      - name: Audit production URL
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://www.outlandmanagement.com/
+            https://www.outlandmanagement.com/services/landscape-installations
+            https://www.outlandmanagement.com/services/snow-removal/waukesha-wi
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          # Fail the CI check if any category drops below these numbers.
+          # Adjust in .lighthouserc.json — kept there so it's editable without touching the workflow.
+          configPath: .lighthouserc.json
