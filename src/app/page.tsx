@@ -7,6 +7,7 @@ import { ServiceIcon } from '@/components/ServiceIcons';
 import { Hero } from '@/components/Hero';
 import { TrustBar } from '@/components/TrustBar';
 import { RecentWorkGallery } from '@/components/RecentWorkGallery';
+import { LazyVideo } from '@/components/LazyVideo';
 import { JsonLd } from '@/components/JsonLd';
 import { localBusinessSchema } from '@/lib/seo';
 
@@ -84,17 +85,11 @@ export default function HomePage() {
       <section className="section-y bg-surface-alt relative overflow-hidden">
         <div className="container-x grid gap-10 md:grid-cols-2 items-center relative">
           <div>
-            <video
-              className="rounded-xl object-contain shadow-lg w-full aspect-square bg-white"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="OUTLAND Commercial — Your partner for all seasons"
-            >
-              <source src="/videos/about-v2.mp4" type="video/mp4" />
-            </video>
+            <LazyVideo
+              src="/videos/about-v2.mp4"
+              className="rounded-xl shadow-lg w-full aspect-square bg-white overflow-hidden"
+              ariaLabel="OUTLAND Commercial — Your partner for all seasons"
+            />
           </div>
           <div>
             <p className="chip">About</p>

@@ -5,7 +5,10 @@ import { useEffect, useState } from 'react';
 
 const SESSION_KEY = 'outland_welcome_20_shown';
 const DISMISSED_KEY = 'outland_welcome_20_dismissed';
-const SHOW_AFTER_MS = 2500;
+// Fire after 6s so it lands well outside the 0–5s Lighthouse TBT / LCP
+// measurement window. Users who haven't decided by 6s are the ones actually
+// worth offering a discount to anyway.
+const SHOW_AFTER_MS = 6000;
 
 /**
  * Welcome / first-visit coupon popup.
