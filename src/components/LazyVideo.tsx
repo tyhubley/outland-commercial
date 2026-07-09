@@ -5,21 +5,19 @@ import { useEffect, useRef, useState } from 'react';
 type Props = {
   src: string;
   className?: string;
-  posterClassName?: string;
-  poster?: string;
   ariaLabel?: string;
 };
 
 /**
- * Renders a video that only starts loading/playing when it scrolls into view.
- * Uses IntersectionObserver so the browser doesn't fetch + decode video frames
- * during the initial LCP/TBT measurement window on pages where the video is
- * below the fold (About section, testimonial reels, etc.).
+ * Renders a video that only starts fetching / decoding when it scrolls into
+ * view. Uses IntersectionObserver + rootMargin so we begin ~200px before the
+ * user actually sees it. Below-the-fold videos on landing pages should never
+ * fire during the Lighthouse LCP/TBT measurement window.
  *
- * Shows an optional poster image immediately for visual continuity.
- * Respects prefers-reduced-motion (no autoplay).
+ * Renders a stable empty placeholder <div> before mount so there is no layout
+ * shift and no placeholder->video swap flash.
  */
-export function LazyVideo({ src, className, poster, ariaLabel }: Props) {
+export function LazyVideo({ src, className, ariaLabel }: Props) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [mounted, setMounted] = useState(false);
@@ -27,9 +25,9 @@ export function LazyVideo({ src, className, poster, ariaLabel }: Props) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (!wrapRef.current) return;
-
     const el = wrapRef.current;
+    if (!el) return;
+
     const io = new IntersectionObserver(
       entries => {
         for (const entry of entries) {
@@ -54,7 +52,7 @@ export function LazyVideo({ src, className, poster, ariaLabel }: Props) {
 
   return (
     <div ref={wrapRef} className={className} aria-label={ariaLabel}>
-      {mounted ? (
+      {mounted && (
         <video
           ref={videoRef}
           className="w-full h-full object-contain"
@@ -66,10 +64,7 @@ export function LazyVideo({ src, className, poster, ariaLabel }: Props) {
         >
           <source src={src} type="video/mp4" />
         </video>
-      ) : poster ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={poster} alt="" className="w-full h-full object-contain" loading="lazy" />
-      ) : null}
+      )}
     </div>
   );
 }

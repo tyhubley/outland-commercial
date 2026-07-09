@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { SITE } from '@/data/site';
 
@@ -18,6 +16,12 @@ function IconSpark() {
   );
 }
 
+/**
+ * Server component — renders static markup only, no useState/useEffect. The
+ * tel: link works with default browser handling; the /contact-us Link uses
+ * Next's built-in intersection prefetch. Zero client-side JS + zero hydration
+ * cost.
+ */
 export function StickyMobileCta() {
   return (
     <div className="lg:hidden fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85 shadow-[0_-8px_20px_-10px_rgba(0,0,0,0.15)]" role="region" aria-label="Quick actions">
