@@ -87,9 +87,9 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
       <section className="bg-white border-b border-border">
         <div className="container-x py-8">
           <div className="rounded-xl bg-surface-alt p-6">
-            <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Portfolio site</div>
+            <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">About this site</div>
             <p className="mt-2 text-lg font-medium text-ink">
-              This business has been sold. <a href={SITE.gartenUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">See how it was built at Garten →</a>
+              OUTLAND Commercial has been sold. New inquiries are not accepted at this time.
             </p>
           </div>
         </div>

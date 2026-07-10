@@ -35,8 +35,7 @@ export function Hero({ h1, sub, imageSrc, imageSrcMobile, videoSrc, videoPoster,
           <p className="mt-6 max-w-xl text-base sm:text-lg text-white/90 fade-up delay-1">{sub}</p>
         )}
         <div className="mt-7 flex flex-wrap gap-3 fade-up delay-2">
-          <Link href="/contact-us" className="btn btn-primary">See Portfolio</Link>
-          <a href={SITE.gartenUrl} target="_blank" rel="noopener noreferrer" className="btn btn-white">Built by Garten</a>
+          <Link href="/contact-us" className="btn btn-primary">About the project</Link>
         </div>
         {showBadge && (
           <div className="mt-10 fade-up delay-3">

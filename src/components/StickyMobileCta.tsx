@@ -28,19 +28,11 @@ export function StickyMobileCta() {
       <div className="flex gap-2 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
         <Link
           href="/contact-us"
-          className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg border border-ink/15 bg-white px-4 py-3 text-[15px] font-semibold text-ink active:scale-[0.98] transition"
-        >
-          <IconSpark />
-          See Portfolio
-        </Link>
-        <a
-          href={SITE.gartenUrl}
-          target="_blank"
-          rel="noopener noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-[15px] font-semibold text-white shadow-sm active:scale-[0.98] transition"
         >
-          Built by Garten
-        </a>
+          <IconSpark />
+          About the project
+        </Link>
       </div>
     </div>
   );

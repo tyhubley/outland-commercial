@@ -30,19 +30,6 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40">
-      {/* Portfolio banner */}
-      <div className="bg-ink text-white text-center text-[12px] md:text-[13px] py-2 px-4">
-        <a
-          href={SITE.gartenUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 hover:text-primary transition-colors"
-        >
-          <span className="opacity-70">◆</span>
-          <span className="font-medium">This is a portfolio piece. OUTLAND has been sold. See the platform that built it →</span>
-        </a>
-      </div>
-
       {/* Orange top bar */}
       <div className="hidden md:block bg-primary text-white">
         <div className="container-x flex items-center justify-between py-3 text-[13px]">
@@ -96,8 +83,7 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Link href="/contact-us" className="btn btn-primary">See Portfolio</Link>
-            <a href={SITE.gartenUrl} target="_blank" rel="noopener noreferrer" className="btn btn-white">Built by Garten</a>
+            <Link href="/contact-us" className="btn btn-primary">About the project</Link>
           </div>
 
           <button className="lg:hidden inline-flex items-center p-2 text-ink" aria-label="Open menu" onClick={() => setOpen(v => !v)}>
@@ -124,8 +110,7 @@ export function Header() {
               <Link href="/contact-us" className="block py-2 text-sm">Contact</Link>
               <Link href="/about-us" className="block py-2 text-sm">About Us</Link>
               <div className="pt-3 flex gap-3">
-                <Link href="/contact-us" className="btn btn-primary flex-1">See Portfolio</Link>
-                <a href={SITE.gartenUrl} target="_blank" rel="noopener noreferrer" className="btn btn-white flex-1">Built by Garten</a>
+                <Link href="/contact-us" className="btn btn-primary flex-1">About the project</Link>
               </div>
             </div>
           </div>

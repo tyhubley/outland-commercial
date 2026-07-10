@@ -28,15 +28,7 @@ export function Footer() {
             <p className="mt-3 text-sm text-ink-muted max-w-xs leading-relaxed">
               Premium landscaping, lawn care, and snow removal services across Waukesha County.
             </p>
-            <a
-              href={SITE.gartenUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-ink hover:text-primary"
-            >
-              Portfolio site — built by Garten →
-            </a>
-            <p className="mt-2 text-xs text-ink-subtle max-w-xs leading-relaxed">
+            <p className="mt-6 text-sm font-medium text-ink-muted max-w-xs leading-relaxed">
               {SITE.portfolioNote}
             </p>
           </div>

@@ -32,42 +32,18 @@ export default function ContactPage() {
       </section>
 
       <section className="section-y bg-white">
-        <div className="container-x grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <div className="rounded-2xl bg-white p-6 md:p-10 ring-1 ring-border shadow-card">
-              <p className="chip">Portfolio site</p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">This business has been sold.</h2>
-              <p className="mt-3 text-ink-muted">
-                OUTLAND Commercial isn&apos;t taking new work. This site lives on as a portfolio piece for the platform that built it. If you&apos;re a landscape contractor who wants a site like this, that&apos;s Garten.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href={SITE.gartenUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">See Garten →</a>
-              </div>
-            </div>
-          </div>
-          <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-2xl bg-surface-alt p-6 md:p-8">
-              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Built by</div>
-              <a
-                href={SITE.gartenUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 block text-3xl font-bold text-ink hover:text-primary tracking-tight"
-              >
-                Garten
-              </a>
-              <p className="mt-2 text-sm text-ink-muted">
-                The lead-response platform for landscape contractors.
-              </p>
-            </div>
-            <div className="rounded-2xl bg-ink p-6 md:p-8 text-white">
-              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Why this site is here</div>
-              <ol className="mt-4 space-y-3 text-sm text-white/85">
-                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">01</span>OUTLAND was founded, run, and sold by Ty Hubley.</li>
-                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">02</span>The site kept live so contractors can see what a Garten build looks like.</li>
-                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">03</span>Every page below is a real Garten page shipped in 48 hours.</li>
-              </ol>
-            </div>
+        <div className="container-x max-w-3xl mx-auto">
+          <div className="rounded-2xl bg-white p-8 md:p-12 ring-1 ring-border shadow-card text-center">
+            <p className="chip mx-auto">About this site</p>
+            <h2 className="mt-4 text-3xl md:text-4xl font-bold text-ink tracking-tight">
+              OUTLAND Commercial has been sold.
+            </h2>
+            <p className="mt-4 text-ink-muted max-w-xl mx-auto leading-relaxed">
+              This site is kept online as a record of the work. New inquiries are not accepted at this time.
+            </p>
+            <p className="mt-4 text-sm text-ink-subtle italic">
+              Thank you to every client, crew member, and supplier who made six seasons of OUTLAND possible.
+            </p>
           </div>
         </div>
       </section>

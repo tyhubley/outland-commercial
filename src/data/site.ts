@@ -1,8 +1,7 @@
 /**
- * OUTLAND Commercial was sold. The site now runs as a portfolio piece
- * for the Garten platform (gartenhq.com). Phone + email removed so
- * no one calls a business that no longer takes work; CTAs redirect
- * to Garten so visitors see who actually built this.
+ * OUTLAND Commercial was sold. Phone + email removed so nobody tries
+ * to hire a business that no longer takes work. Site stands on its
+ * own as a visual portfolio — no external outbound links.
  */
 export const SITE = {
   name: 'OUTLAND Commercial',
@@ -14,11 +13,8 @@ export const SITE = {
   googleReviewsUrl: 'https://search.google.com/local/reviews?placeid=ChIJ27KkieWlBYgR9a5jFhlbmHw',
   googleWriteReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJ27KkieWlBYgR9a5jFhlbmHw',
   googleReviewCount: 79,
-  /** When true, all Call/Email CTAs collapse to a single 'built by Garten'
-   * link pointing at gartenhq.com, and the contact form is disabled. */
   isPortfolio: true,
-  gartenUrl: 'https://gartenhq.com',
-  portfolioNote: 'This business has been sold. Site kept as a portfolio piece.',
+  portfolioNote: 'This business has been sold.',
 };
 
 export const SERVICES = [
