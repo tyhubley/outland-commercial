@@ -83,16 +83,14 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
       <JsonLd data={schemas} />
       <Hero h1={a.h1} sub={a.sub} imageSrc={hero} showBadge={false} />
 
-      {/* Quick contact */}
+      {/* Portfolio note */}
       <section className="bg-white border-b border-border">
-        <div className="container-x py-8 grid gap-6 sm:grid-cols-2">
+        <div className="container-x py-8">
           <div className="rounded-xl bg-surface-alt p-6">
-            <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Phone Number</div>
-            <a href={`tel:${SITE.phoneRaw}`} className="mt-2 block text-2xl font-bold text-ink hover:text-primary">{SITE.phone}</a>
-          </div>
-          <div className="rounded-xl bg-surface-alt p-6">
-            <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Request a free estimate</div>
-            <Link href="/contact-us" className="mt-2 block text-2xl font-bold text-ink hover:text-primary">Send us a message</Link>
+            <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Portfolio site</div>
+            <p className="mt-2 text-lg font-medium text-ink">
+              This business has been sold. <a href={SITE.gartenUrl} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">See how it was built at Garten →</a>
+            </p>
           </div>
         </div>
       </section>

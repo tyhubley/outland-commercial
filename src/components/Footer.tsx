@@ -28,13 +28,16 @@ export function Footer() {
             <p className="mt-3 text-sm text-ink-muted max-w-xs leading-relaxed">
               Premium landscaping, lawn care, and snow removal services across Waukesha County.
             </p>
-            <a href={`tel:${SITE.phoneRaw}`} className="mt-6 inline-flex items-center gap-2 text-xl font-semibold text-ink hover:text-primary">
-              <IconPhone />
-              {SITE.phone}
+            <a
+              href={SITE.gartenUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 text-base font-semibold text-ink hover:text-primary"
+            >
+              Portfolio site — built by Garten →
             </a>
-            <p className="mt-1 inline-flex items-center gap-2 text-sm text-ink-subtle">
-              <IconClock />
-              {SITE.hoursDays}: {SITE.hours}
+            <p className="mt-2 text-xs text-ink-subtle max-w-xs leading-relaxed">
+              {SITE.portfolioNote}
             </p>
           </div>
 

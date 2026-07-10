@@ -26,20 +26,21 @@ export function StickyMobileCta() {
   return (
     <div className="lg:hidden fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/85 shadow-[0_-8px_20px_-10px_rgba(0,0,0,0.15)]" role="region" aria-label="Quick actions">
       <div className="flex gap-2 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
-        <a
-          href={`tel:${SITE.phoneRaw}`}
-          className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg border border-ink/15 bg-white px-4 py-3 text-[15px] font-semibold text-ink active:scale-[0.98] transition"
-        >
-          <IconPhone />
-          Call
-        </a>
         <Link
           href="/contact-us"
-          className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-[15px] font-semibold text-white shadow-sm active:scale-[0.98] transition"
+          className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg border border-ink/15 bg-white px-4 py-3 text-[15px] font-semibold text-ink active:scale-[0.98] transition"
         >
           <IconSpark />
-          Free estimate
+          See Portfolio
         </Link>
+        <a
+          href={SITE.gartenUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-[15px] font-semibold text-white shadow-sm active:scale-[0.98] transition"
+        >
+          Built by Garten
+        </a>
       </div>
     </div>
   );

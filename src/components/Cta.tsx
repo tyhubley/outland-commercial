@@ -15,8 +15,8 @@ export function Cta({ heading, body }: { heading: string; body: string }) {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">{heading}</h2>
           <p className="mt-4 text-white/80 text-base md:text-lg">{body}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/contact-us" className="btn btn-primary">Free Estimate</Link>
-            <a href={`tel:${SITE.phoneRaw}`} className="btn btn-white"><IconPhone /> Call us</a>
+            <Link href="/contact-us" className="btn btn-primary">See Portfolio</Link>
+            <a href={SITE.gartenUrl} target="_blank" rel="noopener noreferrer" className="btn btn-white">Built by Garten</a>
           </div>
         </div>
       </div>

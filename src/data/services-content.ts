@@ -154,7 +154,7 @@ export const SERVICE_CONTENT: Record<string, ServiceContent> = {
         { q: 'How thick should mulch be installed?', a: 'Two to three inches is the sweet spot — thick enough to suppress weeds and retain moisture without smothering plant roots. We install at a consistent depth and feather it down around tree trunks and foundations to avoid the "mulch volcano" mistake.' },
         { q: 'Do you handle landscape installs beyond mulch?', a: 'Yes — full installs are a core part of what OUTLAND does. We install plantings, sod, retaining walls, decorative stone, dry creeks, edging, walkways, and landscape lighting. Larger projects start with a design consultation and on-site planning visit.' },
         { q: 'Do you install for commercial properties or only homes?', a: 'Both. We install mulch and full landscape projects for commercial properties (office parks, multifamily, retail centers, HOAs) and residential clients across Waukesha County. Many of our 79 five-star reviewers are repeat commercial clients who book us seasonally.' },
-        { q: 'How quickly can you install mulch after I book?', a: 'During peak spring season we typically schedule installs 1–2 weeks out. Outside spring rush, we can often install within a few days. For urgent jobs (real estate showings, events), call us at (920) 412-3524 and we will work to fit you in.' },
+        { q: 'How quickly can you install mulch after I book?', a: 'During peak spring season we typically schedule installs 1–2 weeks out. Outside spring rush, we can often install within a few days. For urgent jobs (real estate showings, events), we work to fit you in.' },
       ],
     },
   },

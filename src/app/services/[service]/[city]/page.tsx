@@ -164,7 +164,7 @@ export default function ServiceCityPage({ params }: { params: { service: string;
             Our team lives and works in Waukesha County. We understand what {c.name}-area properties deal with year-round — from spring thaws that saturate clay soils to late-winter snow events that come through fast. We schedule service windows around {c.name} weather patterns, use equipment sized to the local lot styles, and stand behind every visit with our 5.0-star Google track record.
           </p>
           <p>
-            Call <a href={`tel:${SITE.phoneRaw}`} className="font-semibold text-primary">{SITE.phone}</a> for a free on-site estimate, or send us the details via the contact form and we&apos;ll follow up within one business day.
+            <em>Portfolio note: OUTLAND Commercial has been sold. This page kept live as a portfolio piece for <a href={SITE.gartenUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-primary">Garten</a>, the platform that built the site.</em>
           </p>
         </div>
       </section>

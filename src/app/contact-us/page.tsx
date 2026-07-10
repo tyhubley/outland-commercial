@@ -35,39 +35,37 @@ export default function ContactPage() {
         <div className="container-x grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <div className="rounded-2xl bg-white p-6 md:p-10 ring-1 ring-border shadow-card">
-              <p className="chip">Free Estimate</p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">Tell us about your property</h2>
+              <p className="chip">Portfolio site</p>
+              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-ink tracking-tight">This business has been sold.</h2>
               <p className="mt-3 text-ink-muted">
-                Share a few details and we&apos;ll get back with a no-obligation quote for your space.
+                OUTLAND Commercial isn&apos;t taking new work. This site lives on as a portfolio piece for the platform that built it. If you&apos;re a landscape contractor who wants a site like this, that&apos;s Garten.
               </p>
-              <div className="mt-8">
-                <ContactForm />
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href={SITE.gartenUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">See Garten →</a>
               </div>
             </div>
           </div>
           <div className="lg:col-span-5 space-y-6">
             <div className="rounded-2xl bg-surface-alt p-6 md:p-8">
-              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Prefer to call?</div>
-              <a href={`tel:${SITE.phoneRaw}`} className="mt-2 block text-3xl font-bold text-ink hover:text-primary tracking-tight">{SITE.phone}</a>
-              <p className="mt-2 text-sm text-ink-muted">We answer every call during business hours.</p>
-            </div>
-            <div className="rounded-2xl bg-surface-alt p-6 md:p-8">
-              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Hours</div>
-              <dl className="mt-3 divide-y divide-border">
-                {DAYS.map(d => (
-                  <div key={d} className="flex items-center justify-between py-2.5">
-                    <dt className="text-sm font-medium text-ink">{d}</dt>
-                    <dd className="text-sm text-ink-muted">{SITE.hours}</dd>
-                  </div>
-                ))}
-              </dl>
+              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Built by</div>
+              <a
+                href={SITE.gartenUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 block text-3xl font-bold text-ink hover:text-primary tracking-tight"
+              >
+                Garten
+              </a>
+              <p className="mt-2 text-sm text-ink-muted">
+                The lead-response platform for landscape contractors.
+              </p>
             </div>
             <div className="rounded-2xl bg-ink p-6 md:p-8 text-white">
-              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">What happens next</div>
+              <div className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">Why this site is here</div>
               <ol className="mt-4 space-y-3 text-sm text-white/85">
-                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">01</span>We review your details and any photos you send over.</li>
-                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">02</span>A team member follows up within one business day.</li>
-                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">03</span>We schedule a site visit and deliver a free estimate.</li>
+                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">01</span>OUTLAND was founded, run, and sold by Ty Hubley.</li>
+                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">02</span>The site kept live so contractors can see what a Garten build looks like.</li>
+                <li className="flex gap-3"><span className="text-primary font-mono font-semibold">03</span>Every page below is a real Garten page shipped in 48 hours.</li>
               </ol>
             </div>
           </div>

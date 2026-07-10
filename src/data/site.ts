@@ -1,13 +1,24 @@
+/**
+ * OUTLAND Commercial was sold. The site now runs as a portfolio piece
+ * for the Garten platform (gartenhq.com). Phone + email removed so
+ * no one calls a business that no longer takes work; CTAs redirect
+ * to Garten so visitors see who actually built this.
+ */
 export const SITE = {
   name: 'OUTLAND Commercial',
-  phone: '(920) 412-3524',
-  phoneRaw: '9204123524',
-  email: 'hello@outlandmanagement.com',
+  phone: '',
+  phoneRaw: '',
+  email: '',
   hours: '7:00 AM – 5:00 PM',
   hoursDays: 'Mon - Sun',
   googleReviewsUrl: 'https://search.google.com/local/reviews?placeid=ChIJ27KkieWlBYgR9a5jFhlbmHw',
   googleWriteReviewUrl: 'https://search.google.com/local/writereview?placeid=ChIJ27KkieWlBYgR9a5jFhlbmHw',
   googleReviewCount: 79,
+  /** When true, all Call/Email CTAs collapse to a single 'built by Garten'
+   * link pointing at gartenhq.com, and the contact form is disabled. */
+  isPortfolio: true,
+  gartenUrl: 'https://gartenhq.com',
+  portfolioNote: 'This business has been sold. Site kept as a portfolio piece.',
 };
 
 export const SERVICES = [

@@ -155,7 +155,7 @@ export function ContactForm() {
 
       {error && (
         <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-[13px] text-red-800">
-          <strong className="font-semibold">Couldn&apos;t send.</strong> {error} Please try again or call <a href="tel:9204123524" className="underline font-semibold">(920) 412-3524</a>.
+          <strong className="font-semibold">Couldn&apos;t send.</strong> {error} This is a portfolio site.
         </div>
       )}
     </form>
@@ -184,8 +184,7 @@ function SuccessPanel() {
         Thanks for reaching out. A member of the OUTLAND team will be in touch within one business day.
       </p>
       <p className="mt-6 text-sm text-ink-subtle fade-up delay-2">
-        Need a hand sooner? Call us at{' '}
-        <a href="tel:9204123524" className="font-semibold text-primary hover:underline">(920) 412-3524</a>
+        Portfolio site.
       </p>
     </div>
   );
