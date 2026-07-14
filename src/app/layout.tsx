@@ -82,6 +82,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Garten beacon: pageview + lead attribution tracking */}
+        <script
+          defer
+          src="https://gartenhq.com/beacon.js"
+          data-site="outland"
+        />
+      </head>
       <body className="pb-20 lg:pb-0">
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <Header />
