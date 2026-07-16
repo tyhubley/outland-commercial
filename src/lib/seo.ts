@@ -69,7 +69,7 @@ export function localBusinessSchema(opts?: { cityFocus?: string }) {
   }));
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'ProfessionalService'],
+    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
     '@id': SITE_URL + '#localbusiness',
     name: SITE.name,
     url: SITE_URL,
@@ -194,7 +194,7 @@ export function serviceAreaLocalBusinessSchema(opts: { cityName: string; citySlu
   const city = opts.cityName.replace(/,\s*WI$/, '');
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'ProfessionalService'],
+    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
     '@id': absoluteUrl('/service-areas/' + opts.citySlug) + '#localbusiness',
     name: `${SITE.name} — ${city}, WI`,
     url: absoluteUrl('/service-areas/' + opts.citySlug),
